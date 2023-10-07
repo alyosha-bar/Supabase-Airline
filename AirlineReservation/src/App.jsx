@@ -53,14 +53,17 @@ function App() {
       <div className='Content'>
         <Switch>
           <Route path='/'>
+
+            {/* { This needs to be a separate component} */}
             <form className="search-bar">
               <h3>Search for flight </h3>
               <input type="text" className='search-input'/>
               <button onClick={ (e) => { handleSearch( e ) } }> Search </button>
             </form>
 
-
+            {/* { This needs to be a separate component} */}
             <section className="main">
+              {/* {This needs to be a filters component} */}
               <div className="filters">
                 <h2 className='filters-title'> Filters </h2>
                 <ul className='filters-list'>

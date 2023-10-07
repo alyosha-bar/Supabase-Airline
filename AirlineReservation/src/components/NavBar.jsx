@@ -23,6 +23,7 @@ const NavBar = () => {
     const logout = () => {
         setUser(null)
         setSession(null)
+        // alert("Logged Out")
     }
 
     const acccount = (e) => {
@@ -36,7 +37,7 @@ const NavBar = () => {
             const  {data, error } = await supabase.auth.getSession();
             setSession(data?.session)
             setUser(data?.session?.user)
-            console.log(user)
+            // console.log(user)
         }
         
         retirieveSession()
