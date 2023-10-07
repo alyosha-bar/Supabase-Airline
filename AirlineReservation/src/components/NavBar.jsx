@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import supabase from '../config/supabaseClient'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -46,13 +47,12 @@ const NavBar = () => {
         <nav className="navbar">
             <h2 className="navbar-heading"> AirQuest </h2>
             <ul className="navbar-links">
-                <li className="navbar-link"><a className="actual-link"> Find Flights </a></li>
-                {/* <li className="navbar-link"><a> Login </a></li> */}
+                <li className="navbar-link"><Link to="/" className="actual-link"> Find Flights </Link></li>
                 <li>
                     {user ? (
                         
                         <div className='auth-area'>
-                            <div className="navbar-link"><a className="actual-link"> myBookings </a></div>
+                            <div className="navbar-link"><Link to='/myBookings' className="actual-link"> myBookings </Link></div>
                             {/* <div className="navbar-link"><div className="actual-link" 
                             onClick={ () => {console.log(user.email)}}> Account </div></div> */}
                             <button className="navbar-btn"  onClick = { logout }> Log Out </button>
