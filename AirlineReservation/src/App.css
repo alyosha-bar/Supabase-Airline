@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    background-color: rgb(38, 37, 37);
+    color: white;
+    min-height: 110px;
+    margin-bottom: 35px;
+}
+
+.navbar-heading {
+    font-size: 2rem;
+    align-self: center;
+}
+
+.navbar-heading:hover {
+    color: #9072e8;
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-right: 5%;
+}
+
+.navbar-link {
+    padding: 10px;
+}
+
+
+.navbar-link a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.navbar-link .actual-link:hover {
+    color: #9072e8;
+}
+
+.navbar-btn {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+}
+
+.navbar-btn:hover {
+    cursor: pointer;
+}
+
+.auth-area {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 95%;
+    padding: 15px;
+    background-color: bisque;
+    margin: 15px;
+}
+
+.search-input {
+    width: 80%;
+    padding: 8px;
+}
+
+.search-bar button {
+    margin: 0 15px;
+    padding: 8px;
+}
+
+
+.main {
+    display: grid;
+    grid-template-columns: 25% 70% ;
+}
+
+.filters {
+    background-color: bisque;
+    padding: 25px;
+    margin: 0 15px;
+}
+
+.filters-title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.filter-input {
+    width: 90%;
+}
+
+
+.flight-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(38, 37, 37);
+    color: white;
+    margin: 25px 15px;
+    border-radius: 10px 20px;
+}
+
+.flight-card > * {
+    padding: 20px;
+}
+
+.flight-card:hover {
+    color: #9072e8;
+    cursor: pointer;
+}
+
+.flight-title {
+    font-size: 1.7rem;
+}
+
+.flight-info-group {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+}
+
+.flight-price {
+    font-size: 1.2rem;
+}
+
+.seat-availability-label, .seat-availability-label-red {
+    margin-left: 90%;
+}
+
+.seat-availability-label-red {
+    color: red;
+}
