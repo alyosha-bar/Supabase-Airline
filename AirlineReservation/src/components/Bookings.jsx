@@ -1,8 +1,11 @@
-
+import { useContext } from "react";
+import { UserContext } from "../context";
 
 const Bookings = () => {
+    const user = useContext(UserContext);
+
     return ( 
-        <div> Here are your Bookings </div>
+        <button onClick={ () => console.log(user.user.email)}> Here are your Bookings </button>
      );
 }
  

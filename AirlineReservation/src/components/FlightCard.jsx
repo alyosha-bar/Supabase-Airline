@@ -3,6 +3,7 @@ const FlightCard = ({ flight }) => {
     return ( 
     <div className="flight-card">
         <h3 className="flight-title">{flight.origin} to {flight.destination}</h3>
+        <div className="flight-airline"> {flight.airline}</div>
         <div className="flight-date"> {flight.departure} </div>
         <div className="flight-info-group">
             <p className="flight-price">£{flight.price}</p>

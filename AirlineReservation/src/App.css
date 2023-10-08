@@ -69,14 +69,17 @@
     margin: 15px;
 }
 
-.search-input {
-    width: 80%;
-    padding: 8px;
+.search-bar input {
+    height: 40px;
+    width: 20%;
 }
+
 
 .search-bar button {
     margin: 0 15px;
     padding: 8px;
+    height: 40px;
+    width: 150px;
 }
 
 

@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import supabase from '../config/supabaseClient'
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context';
 
 const NavBar = () => {
 
-    const [user, setUser] = useState();
     const [session, setSession] = useState();
+    const {user, setUser} = useContext(UserContext)
 
+    const history = useHistory();
 
     const login = async () => {
-        console.log('Logging in...');
         try {
             await supabase.auth.signInWithOAuth({
                 provider: 'google'
             });
-            console.log('Successfully signed in!');
         } catch (error) {
             console.error('Error signing in:', error.message);
         }
@@ -24,12 +25,7 @@ const NavBar = () => {
         setUser(null)
         setSession(null)
         // alert("Logged Out")
-    }
-
-    const acccount = (e) => {
-        e.preventDefault();
-
-        console.log(user.email)
+        history.push('/')
     }
 
     useEffect( () => {
@@ -48,7 +44,7 @@ const NavBar = () => {
         <nav className="navbar">
             <h2 className="navbar-heading"> AirQuest </h2>
             <ul className="navbar-links">
-                <li className="navbar-link"><Link to="/" className="actual-link"> Find Flights </Link></li>
+                <li className="navbar-link"><Link to='/' className="actual-link"> Find Flights </Link></li>
                 <li>
                     {user ? (
                         
