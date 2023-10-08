@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     padding: 25px;
-    background-color: rgb(38, 37, 37);
+    background-color: #183D3D;
     color: white;
     min-height: 110px;
     margin-bottom: 35px;
@@ -65,13 +65,18 @@
 .search-bar {
     width: 95%;
     padding: 15px;
-    background-color: bisque;
+    background-color: #183D3D;
     margin: 15px;
 }
 
-.search-bar input {
+.search-bar * {
+    color: white;
+}
+
+.search-bar input, .search-bar button {
     height: 40px;
     width: 20%;
+    color: black;
 }
 
 
@@ -83,15 +88,23 @@
 }
 
 
+.Content {
+    background-color: #93B1A6;
+}
+
 .main {
     display: grid;
     grid-template-columns: 25% 70% ;
 }
 
 .filters {
-    background-color: bisque;
+    background-color: #183D3D;
     padding: 25px;
     margin: 0 15px;
+}
+
+.filters * {
+    color: white;
 }
 
 .filters-title {
@@ -111,7 +124,7 @@
 .flight-card {
     display: flex;
     flex-direction: column;
-    background-color: rgb(38, 37, 37);
+    background-color: #183D3D;
     color: white;
     margin: 25px 15px;
     border-radius: 10px 20px;

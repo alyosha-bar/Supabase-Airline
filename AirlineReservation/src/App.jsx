@@ -5,6 +5,9 @@ import supabase from './config/supabaseClient'
 import FlightCard from './components/flightCard';
 import NavBar from './components/NavBar';
 import Bookings from './components/Bookings';
+import SearchForm from './components/SearchForm';
+import Filters from './components/Filters';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import {UserProvider} from './context'
@@ -18,8 +21,11 @@ function App() {
   const [searchParamDestination, setSearchParamDestination] = useState("");
   const [searchParamDate, setSearchParamDate] = useState("");
 
-  const [user, setUser] = useState(null);
-
+  const searchParams = {
+    searchParamOrigin, setSearchParamOrigin, 
+    searchParamDestination, setSearchParamDestination,
+    searchParamDate, setSearchParamDate
+  }
 
 
   useEffect(() => {
@@ -56,62 +62,33 @@ function App() {
   return (
     <Router>
     <div className='App'>
-      <UserProvider value={ user }>
+      <UserProvider >
         <NavBar />
         <div className='Content'>
           <Switch>
-            <Route exact path='/'>
+              <Route exact path='/'>
 
-              {/* { This needs to be a separate component} */}
-              <form className="search-bar">
-                <h3>Search for flight </h3>
-                <input
-                  placeholder='Input origin ... ' 
-                  type="text" 
-                  className=''
-                  value={ searchParamOrigin }
-                  onChange={(e) => setSearchParamOrigin(e.target.value) }
-                />
-                <input 
-                  placeholder='Input destination ... '
-                  type="text"
-                  className=''
-                  value={ searchParamDestination }
-                  onChange={ (e) => { setSearchParamDestination(e.target.value)}}
-                />
-                <input 
-                  type="date" 
-                  value={ searchParamDate }
-                  onChange={ (e) => { setSearchParamDate(e.target.value)}}
-                />
-                {/* <button onClick={ (e) => { handleSearch( e ) } }> Search </button> */}
-                <button onClick={ (e) => { handleSearch( e ) } }> Search </button>
-              </form>
+                <SearchForm searchParams={ searchParams }></SearchForm>
 
-              {/* { This needs to be a separate component} */}
-              <section className="main">
-                {/* {This needs to be a filters component} */}
-                <div className="filters">
-                  <h2 className='filters-title'> Filters </h2>
-                  <ul className='filters-list'>
-                    <li className='filter'> Airline: <input className="filter-input" type="text" /> </li>
-                  </ul>
-                </div>
+                
+                <section className="main">
+                  <Filters></Filters>
 
-                {error && (<p> {error}</p>)}
-                {flights && (
-                  <div className="flights">
-                    {flights.map( flight => (
-                      <FlightCard key = {flight.id} flight = {flight}/>
-                    ))}
-                  </div>
-                )}
+                  {error && (<p> {error}</p>)}
+                  {flights && (
+                    <div className="flights">
+                      {flights.map( flight => (
+                        <FlightCard key = {flight.id} flight = {flight}/>
+                      ))}
+                    </div>
+                  )}
 
-              </section>
-            </Route>
-            <Route exact path='/myBookings'>
-              <Bookings />
-            </Route>
+                </section>
+              </Route>
+
+              <Route exact path='/myBookings'>
+                <Bookings />
+              </Route>
         </Switch>
         {/* { Footer } */}
         </div>
