@@ -17,9 +17,9 @@ function App() {
 
   const [error, setError] = useState(null);
   const [flights, setFlights] = useState(null);
-  const [searchParamOrigin, setSearchParamOrigin] = useState("");
-  const [searchParamDestination, setSearchParamDestination] = useState("");
-  const [searchParamDate, setSearchParamDate] = useState("");
+  const [searchParamOrigin, setSearchParamOrigin] = useState();
+  const [searchParamDestination, setSearchParamDestination] = useState();
+  const [searchParamDate, setSearchParamDate] = useState();
 
   const searchParams = {
     searchParamOrigin, setSearchParamOrigin, 
@@ -28,9 +28,6 @@ function App() {
   }
 
   const fetchFlights = async () => {
-      // const {data, error} = await supabase
-      // .from('flights')
-      // .select()
 
       const { data, error } = await supabase
       .from('flights')
@@ -50,18 +47,7 @@ function App() {
         setError(null);
       }
 
-      // console.log(searchParamDate)
   }
-
-
-    // useEffect(() => {
-    //   fetchFlights()
-    // }, [flights]);
-
-
-  // useEffect(() => {
-  //   fetchFlights();
-  // }, [flights])
 
   const handleSearch = (e) => {
     e.preventDefault();
