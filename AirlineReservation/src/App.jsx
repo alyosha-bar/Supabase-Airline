@@ -49,16 +49,6 @@ function App() {
 
   }
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-
-    console.log("From: " + searchParamOrigin + " to " + searchParamDestination + " on the " + searchParamDate);
-
-    //perform an conditional SQL query
-
-
-  }
-
 
   // @react-refresh:267 Warning: A component is changing a controlled input to be uncontrolled. 
   // This is likely caused by the value changing from a defined to undefined, 
