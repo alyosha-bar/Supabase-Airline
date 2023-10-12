@@ -27,12 +27,17 @@ function App() {
     searchParamDate, setSearchParamDate
   }
 
+  const fetchFlights = async () => {
+      // const {data, error} = await supabase
+      // .from('flights')
+      // .select()
 
-  useEffect(() => {
-    const fetchFlights = async () => {
-      const {data, error} = await supabase
+      const { data, error } = await supabase
       .from('flights')
       .select()
+      .eq('destination', searchParamDestination)
+      .eq('origin', searchParamOrigin);
+
       
       if (error) {
         setError("Could not fetch Flights");
@@ -44,10 +49,19 @@ function App() {
         setFlights(data);
         setError(null);
       }
-    }
 
-    fetchFlights();
-  }, [])
+      // console.log(searchParamDate)
+  }
+
+
+    // useEffect(() => {
+    //   fetchFlights()
+    // }, [flights]);
+
+
+  // useEffect(() => {
+  //   fetchFlights();
+  // }, [flights])
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -59,6 +73,12 @@ function App() {
 
   }
 
+
+  // @react-refresh:267 Warning: A component is changing a controlled input to be uncontrolled. 
+  // This is likely caused by the value changing from a defined to undefined, 
+  //which should not happen. Decide between using a controlled or uncontrolled input element 
+  // for the lifetime of the component. More info:
+
   return (
     <Router>
     <div className='App'>
@@ -68,19 +88,23 @@ function App() {
           <Switch>
               <Route exact path='/'>
 
-                <SearchForm searchParams={ searchParams }></SearchForm>
+                <SearchForm searchParams={ searchParams} fetchFlights={fetchFlights }></SearchForm>
 
                 
                 <section className="main">
                   <Filters></Filters>
 
                   {error && (<p> {error}</p>)}
-                  {flights && (
-                    <div className="flights">
-                      {flights.map( flight => (
-                        <FlightCard key = {flight.id} flight = {flight}/>
-                      ))}
-                    </div>
+                  {searchParamOrigin ? (
+                    flights && (
+                      <div className="flights">
+                        {flights.map( flight => (
+                          <FlightCard key = {flight.id} flight = {flight}/>
+                        ))}
+                      </div>
+                    )
+                  ) : (
+                    <div> No Flights </div>
                   )}
 
                 </section>

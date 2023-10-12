@@ -1,7 +1,7 @@
 
 
 
-const SearchForm = ({ searchParams }) => {
+const SearchForm = ({ searchParams, fetchFlights}) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -10,6 +10,7 @@ const SearchForm = ({ searchParams }) => {
      + " to " + searchParams.searchParamDestination + " on the " + searchParams.searchParamDate);
 
     //perform an conditional SQL query
+    fetchFlights();
 
   }
 
