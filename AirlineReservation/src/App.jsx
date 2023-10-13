@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import supabase from './config/supabaseClient'
 
-import FlightCard from './components/flightCard';
+import FlightCard from './components/FlightCard';
 import NavBar from './components/NavBar';
 import Bookings from './components/Bookings';
 import SearchForm from './components/SearchForm';

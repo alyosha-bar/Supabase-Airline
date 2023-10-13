@@ -5,12 +5,13 @@
 }
 
 
+
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 25px;
-    background-color: #183D3D;
-    color: white;
+    background-color: #478b8b;
+    /* color: white; */
     min-height: 110px;
     margin-bottom: 35px;
 }
@@ -39,12 +40,12 @@
 
 .navbar-link a {
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 1.2rem;
 }
 
 .navbar-link .actual-link:hover {
-    color: #9072e8;
+    font-weight: bold;
 }
 
 .navbar-btn {
@@ -63,8 +64,8 @@
 }
 
 .search-bar {
-    width: 95%;
-    padding: 15px;
+    max-width: 70%;
+    padding: 25px;
     background-color: #183D3D;
     margin: 15px;
 }
@@ -98,9 +99,6 @@ i:hover {
     cursor: pointer;
 }
 
-.Content {
-    background-color: #93B1A6;
-}
 
 .main {
     display: grid;
@@ -111,6 +109,7 @@ i:hover {
     background-color: #183D3D;
     padding: 25px;
     margin: 0 15px;
+    height: 80vh;
 }
 
 .filters * {
@@ -134,14 +133,16 @@ i:hover {
 .flight-card {
     display: flex;
     flex-direction: column;
-    background-color: #183D3D;
-    color: white;
+    /* background-color: #183D3D; */
+    /* color: white; */
     margin: 25px 15px;
     border-radius: 10px 20px;
+    border: 1px black solid;
+    max-width: 850px;
 }
 
 .flight-card > * {
-    padding: 20px;
+    padding: 15px;
 }
 
 .flight-card:hover {
@@ -159,15 +160,43 @@ i:hover {
     display: flex;
     flex-direction: row;
     font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flight-info-group * {
+    margin: 0px 15px;
+}
+
+.buy-btn {
+    padding: 15px;
 }
 
 .flight-price {
     font-size: 1.2rem;
+    border: 1px solid;
+    padding: 9px;
+    border-radius: 17px;
+    background-color: green;
+    color: white;
 }
 
-.seat-availability-label, .seat-availability-label-red {
-    margin-left: 90%;
+.flight-labels {
+    display: flex;
 }
+
+
+.seat-availability-label { 
+    border: 1px solid;
+    padding: 9px;
+    border-radius: 17px;
+    background-color: green;
+    color: white;
+}
+
+/* .seat-availability-label, .seat-availability-label-red {
+    margin-left: 90%;
+} */
 
 .seat-availability-label-red {
     color: red;
