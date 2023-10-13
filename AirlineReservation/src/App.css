@@ -77,6 +77,7 @@
     height: 40px;
     width: 20%;
     color: black;
+    text-indent: 10px;
 }
 
 
@@ -87,6 +88,15 @@
     width: 150px;
 }
 
+
+i {
+    margin: 0 15px;
+    align-items: center;
+}
+
+i:hover {
+    cursor: pointer;
+}
 
 .Content {
     background-color: #93B1A6;
@@ -140,7 +150,9 @@
 }
 
 .flight-title {
+    display: flex;
     font-size: 1.7rem;
+    align-items: center;
 }
 
 .flight-info-group {

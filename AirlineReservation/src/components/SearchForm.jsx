@@ -1,7 +1,7 @@
+import "@fortawesome/fontawesome-free/css/all.min.css"
 
 
-
-const SearchForm = ({ searchParams, fetchFlights}) => {
+const SearchForm = ({ searchParams, fetchFlights }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -14,18 +14,33 @@ const SearchForm = ({ searchParams, fetchFlights}) => {
 
   }
 
+
+  const switchInputs = (e) => {
+    e.preventDefault();
+
+    const temp = searchParams.searchParamOrigin;
+    searchParams.setSearchParamOrigin(searchParams.searchParamDestination)
+    searchParams.setSearchParamDestination(temp);
+
+    console.log(searchParams.searchParamOrigin)
+  }
+
+
     return ( 
         <form className="search-bar">
                   <h3>Search for flight </h3>
                   <input
-                    placeholder=' Input origin ... ' 
+                    placeholder='Input origin ... ' 
                     type="text" 
                     className=''
                     value={ searchParams.searchParamOrigin }
                     onChange={(e) => searchParams.setSearchParamOrigin(e.target.value) }
                   />
+
+                  <i onClick={ (e) => {switchInputs(e)} } className="fas fa-exchange-alt fa-lg"/>
+
                   <input 
-                    placeholder=' Input destination ... '
+                    placeholder='Input destination ... '
                     type="text"
                     className=''
                     value={ searchParams.searchParamDestination }

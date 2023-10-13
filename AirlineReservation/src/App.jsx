@@ -20,6 +20,9 @@ function App() {
   const [searchParamOrigin, setSearchParamOrigin] = useState();
   const [searchParamDestination, setSearchParamDestination] = useState();
   const [searchParamDate, setSearchParamDate] = useState();
+  
+  const [length, setLength] = useState(0);
+
 
   const searchParams = {
     searchParamOrigin, setSearchParamOrigin, 
@@ -36,6 +39,8 @@ function App() {
       .eq('origin', searchParamOrigin);
 
       
+      setLength(data.length)
+
       if (error) {
         setError("Could not fetch Flights");
         setFlights(null);
@@ -71,7 +76,7 @@ function App() {
                   <Filters></Filters>
 
                   {error && (<p> {error}</p>)}
-                  {searchParamOrigin ? (
+                  {length ? (
                     flights && (
                       <div className="flights">
                         {flights.map( flight => (
